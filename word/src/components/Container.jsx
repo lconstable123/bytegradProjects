@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Textarea from "./TextArea";
+import Textarea from "./Textarea";
 import Stats from "./Stats";
 import {
   FACEBOOK_MAX_CHARACTERS,
