@@ -1,21 +1,21 @@
-import { useState } from "react";
+// import { useState, useEffect } from "react";
+import ItemsContextProvider from "../contexts/ItemsContextProvider";
 import BackgroundHeading from "./BackgroundHeading";
 import Footer from "./Footer";
 import Header from "./Header";
 import ItemList from "./ItemList";
-import { initialItems } from "../../lib/constants";
 import Sidebar from "./Sidebar";
 
 function App() {
-  const [items, setItems] = useState(initialItems);
-
   return (
     <>
       <BackgroundHeading />
       <main>
-        <Header />
-        <ItemList items={items} />
-        <Sidebar setItems={setItems} />
+        <ItemsContextProvider>
+          <Header />
+          <ItemList />
+          <Sidebar />
+        </ItemsContextProvider>
       </main>
       <Footer />
     </>

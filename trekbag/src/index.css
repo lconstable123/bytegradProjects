@@ -88,7 +88,7 @@ header {
   grid-row: 2 / 3;
   background-color: #fff;
   overflow-y: scroll;
-  scrollbar-color: red orange;
+  scrollbar-color: #adacaa rgb(238, 238, 238);
   scrollbar-width: thin;
   position: relative;
 }
@@ -99,11 +99,11 @@ header {
 }
 
 .item-list::-webkit-scrollbar-track {
-  background: #faf7f3;
+  background-color: #473a2b;
 }
 
 .item-list::-webkit-scrollbar-thumb {
-  background-color: #f3f1ee;
+  background-color: #473a2b;
 }
 
 .item {
@@ -162,10 +162,10 @@ label > input:checked {
   background-color: #6e6251;
 }
 
-/* label > input:focus,
+label > input:focus,
 label > input:active {
   outline-color: #a1988a;
-} */
+}
 
 label > label {
   cursor: pointer;

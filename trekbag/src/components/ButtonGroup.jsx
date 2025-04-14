@@ -1,15 +1,22 @@
 import Button from "./Button";
-
-import { secondaryButtons } from "../../lib/constants";
-
-export const ButtonGroup = (props) => {
+import { useItemsContext } from "../../lib/hooks";
+export const ButtonGroup = () => {
+  const { handleMarkAll, handleResetItems, handleRemoveAllItems } =
+    useItemsContext();
   return (
     <section className="button-group">
-      {secondaryButtons.map((text) => (
-        <Button key={text} type="secondary">
-          {text}
-        </Button>
-      ))}
+      <Button buttonType="secondary" onClick={() => handleMarkAll(true)}>
+        Mark all as complete
+      </Button>
+      <Button buttonType="secondary" onClick={() => handleMarkAll(false)}>
+        Mark all as incomplete
+      </Button>
+      <Button buttonType="secondary" onClick={handleResetItems}>
+        Reset to initial
+      </Button>
+      <Button buttonType="secondary" onClick={handleRemoveAllItems}>
+        Remove all items
+      </Button>
     </section>
   );
 };
