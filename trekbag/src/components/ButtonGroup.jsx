@@ -1,8 +1,16 @@
+import { use } from "react";
 import Button from "./Button";
-import { useItemsContext } from "../../lib/hooks";
+import { useItemsStore } from "../stores/itemsStore";
+// import { useItemsContext } from "../../lib/hooks";
 export const ButtonGroup = () => {
-  const { handleMarkAll, handleResetItems, handleRemoveAllItems } =
-    useItemsContext();
+  // const { handleMarkAll, handleResetItems, handleRemoveAllItems } =
+  //   useItemsContext();
+  const handleMarkAll = useItemsStore((state) => state.handleMarkAll);
+  const handleResetItems = useItemsStore((state) => state.handleResetItems);
+  const handleRemoveAllItems = useItemsStore(
+    (state) => state.handleRemoveAllItems
+  );
+
   return (
     <section className="button-group">
       <Button buttonType="secondary" onClick={() => handleMarkAll(true)}>
