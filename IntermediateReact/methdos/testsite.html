@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="test.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      function mapRange(value, inMin, inMax, outMin, outMax) {
+        const remap =
+          ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+        const clampedValue = Math.max(outMin, Math.min(remap, outMax));
+        return clampedValue;
+      }
+
+      const start = 300;
+      const end = 400;
+      window.addEventListener("scroll", function () {
+        const scaleMe = document.getElementById("scaleMe");
+        const debug = document.getElementById("debugger");
+        const scrollY = window.scrollY;
+
+        // if (scrollY < 0) {
+        //   scrollY = 0;
+        // }
+        const scaleValue = 1 + scrollY / 1000; // Adjust the divisor for scaling speed
+
+        const newval = mapRange(scrollY, 300, 400, 0, 1);
+        scaleMe.style.transform = `scale(${newval})`;
+        debug.innerHTML = `Scroll Y: ${scrollY}, new Value: ${newval}`;
+        // debug.innerHTML = `Scroll Y: ${scrollY}, Scale Value: ${scaleValue}`;
+      });
+    </script>
+    <title>Test Sfite</title>
+  </head>
+  <body>
+    <header>
+      <div class="debugger" id="debugger">dsfdsdfsdsf</div>
+      <h1>Test Site</h1>
+      <div class="bg"></div>
+    </header>
+    <div class="container">
+      <div class="section1">2</div>
+      <div class="section2">
+        <div class="box">
+          <div>1</div>
+          <div>1</div>
+        </div>
+        <div class="box">
+          <div>1</div>
+          <div>1</div>
+        </div>
+        <div class="box">
+          <div>1</div>
+          <div>1</div>
+        </div>
+        <div class="box">
+          <div>1</div>
+          <div>1</div>
+        </div>
+      </div>
+    </div>
+    <div class="scaling-box" id="scaleMe">I'm scaling on scroll!</div>
+    <footer></footer>
+  </body>
+</html>
