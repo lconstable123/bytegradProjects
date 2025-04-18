@@ -8,7 +8,7 @@ type TFeedbackItemsState = {
   selectedCompany: string;
   getCompanyList: () => string[];
   getFilteredFeedbackItems: () => TFeedbackItem[];
-  addItemToList: (text: string) => void;
+  addItemToList: (text: string) => Promise<void>;
   selectCompany: (company: string) => void;
   fetchFeedbackItems: () => void;
 };
